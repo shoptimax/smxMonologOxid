@@ -1,0 +1,42 @@
+{
+  "name": "shoptimax/smxMonologOxid",
+  "description": "shoptimax OXID logging module",
+  "type": "oxideshop-module",
+  "keywords": [
+    "shoptimax",
+    "logging",
+    "monolog",
+    "graylog",
+    "gelf"
+  ],
+  "homepage": "http://www.shoptimax.de",
+  "license": "MIT",
+  "config": {
+  },
+  "repositories": {
+    "shoptimax/smxmonolog": {
+      "type": "vcs",
+      "url": "https://github.com/shoptimax/smxmonolog.git"
+    }
+  },
+  "require": {
+    "shoptimax/smxmonolog": "*"
+  },
+  "require-dev": {
+  },
+  "extra": {
+    "oxideshop": {
+      "target-directory": "shoptimax/smxmonologoxid"
+    }
+  },
+  "scripts": {
+  },
+  "authors": [
+    {
+      "name": "Stefan Moises",
+      "email": "moises@shoptimax.de"
+    }
+  ],
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
