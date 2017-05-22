@@ -45,8 +45,8 @@ class smxmonologoxidlogger extends oxSuperCfg
         // we can't use class_exists() since OXID
         // can't handle namespaces in oxAutoload yet
         // and throws regex compilation error...
-        if (!file_exists(__DIR__ . '/../../../../vendor/graylog2/gelf-php/src/Gelf/Logger.php')
-            || !file_exists(__DIR__ . '/../../../../vendor/autoload.php')
+        if (!file_exists(dirname(__FILE__) . '/../../../../vendor/shoptimax/smxmonolog/Log/SmxMonolog.php')
+            || !file_exists(dirname(__FILE__) . '/../../../../vendor/autoload.php')
         ) {
             return false;
         }
@@ -68,7 +68,7 @@ class smxmonologoxidlogger extends oxSuperCfg
 
         if (!$this->libsAvailable()) {
             $this->_enabled = false;
-            error_log("smxGrayLog Fatal - PHP GELF lib not installed!");
+            error_log("smxGrayLog Fatal - smxmonolog lib not installed! Please install it via composer update!");
             return;
         }
         if ($this->monologConfig === null) {

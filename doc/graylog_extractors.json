@@ -1,0 +1,118 @@
+{
+  "extractors": [
+    {
+      "condition_type": "regex",
+      "condition_value": ".*Stack Trace.*",
+      "converters": [],
+      "cursor_strategy": "copy",
+      "extractor_config": {
+        "regex_value": "\\]:\\s{1,}(.*)"
+      },
+      "extractor_type": "regex",
+      "order": 0,
+      "source_field": "full_message",
+      "target_field": "detailed_message",
+      "title": "EXCEPTIONLOG_DetailedMessage"
+    },
+    {
+      "condition_type": "regex",
+      "condition_value": ".*Stack Trace.*",
+      "converters": [],
+      "cursor_strategy": "copy",
+      "extractor_config": {
+        "regex_value": ".*time:\\s([0-9]{4}-[0-9]{2}-[0-9]{2})\\s.*"
+      },
+      "extractor_type": "regex",
+      "order": 0,
+      "source_field": "full_message",
+      "target_field": "message_date",
+      "title": "EXCEPTIONLOG_MsgDate"
+    },
+    {
+      "condition_type": "regex",
+      "condition_value": ".*Stack Trace.*",
+      "converters": [],
+      "cursor_strategy": "copy",
+      "extractor_config": {
+        "regex_value": ".*time:\\s[0-9]{4}-[0-9]{2}-[0-9]{2}\\s([0-9]{2}:[0-9]{2}:[0-9]{2}).*"
+      },
+      "extractor_type": "regex",
+      "order": 0,
+      "source_field": "full_message",
+      "target_field": "message_time",
+      "title": "EXCEPTIONLOG_MsgTime"
+    },
+    {
+      "condition_type": "regex",
+      "condition_value": ".*Stack Trace.*",
+      "converters": [],
+      "cursor_strategy": "copy",
+      "extractor_config": {
+        "regex_value": "(ox[a-zA-Z]{1,})(-ox)?.*"
+      },
+      "extractor_type": "regex",
+      "order": 0,
+      "source_field": "full_message",
+      "target_field": "error_level",
+      "title": "EXCEPTIONLOG_ErrorLevel"
+    },
+    {
+      "condition_type": "regex",
+      "condition_value": ".*\\]\\sPHP",
+      "converters": [],
+      "cursor_strategy": "copy",
+      "extractor_config": {
+        "regex_value": "\\]\\s([a-zA-Z\\s]*):"
+      },
+      "extractor_type": "regex",
+      "order": 0,
+      "source_field": "full_message",
+      "target_field": "error_level",
+      "title": "PHPLOG_ErrorLevel"
+    },
+    {
+      "condition_type": "regex",
+      "condition_value": ".*\\]\\sPHP",
+      "converters": [],
+      "cursor_strategy": "copy",
+      "extractor_config": {
+        "regex_value": ":\\s{1,}(.*)"
+      },
+      "extractor_type": "regex",
+      "order": 0,
+      "source_field": "full_message",
+      "target_field": "detailed_message",
+      "title": "PHPLOG_DetailedMessage"
+    },
+    {
+      "condition_type": "regex",
+      "condition_value": ".*\\]\\sPHP",
+      "converters": [],
+      "cursor_strategy": "copy",
+      "extractor_config": {
+        "regex_value": "\\[([0-9]{2}-[a-zA-Z]{3}-[0-9]{4}).*"
+      },
+      "extractor_type": "regex",
+      "order": 0,
+      "source_field": "full_message",
+      "target_field": "message_date",
+      "title": "PHPLOG_MsgDate"
+    },
+    {
+      "condition_type": "regex",
+      "condition_value": ".*\\]\\sPHP",
+      "converters": [],
+      "cursor_strategy": "copy",
+      "extractor_config": {
+        "regex_value": "\\s([0-9]{2}:[0-9]{2}:[0-9]{2}).*"
+      },
+      "extractor_type": "regex",
+      "order": 0,
+      "source_field": "full_message",
+      "target_field": "message_time",
+      "title": "PHPLOG_MsgTime"
+    }
+  ],
+  "version": "1.3.4 (0d67a80)"
+}
+
