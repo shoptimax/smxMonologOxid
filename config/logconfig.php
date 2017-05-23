@@ -40,17 +40,19 @@ return array(
         ),
 
         'info_file_handler' => array(
-            'class' => 'Monolog\Handler\StreamHandler',
+            'class' => 'Monolog\Handler\RotatingFileHandler',
             'level' => 'INFO',
             'formatter' => 'dashed',
-            'stream' => $config['infoLogfilePath']
+            'filename' => $config['infoLogfilePath'],
+            'maxFiles' => 20
         ),
 
         'error_file_handler' => array(
-            'class' => 'Monolog\Handler\StreamHandler',
+            'class' => 'Monolog\Handler\RotatingFileHandler',
             'level' => 'ERROR',
-            'stream' => $config['errorLogfilePath'],
-            'formatter' => 'spaced'
+            'formatter' => 'spaced',
+            'filename' => $config['errorLogfilePath'],
+            'maxFiles' => 20
         ),
 
         'gelf' => array(
@@ -123,6 +125,14 @@ return array(
         'gelfDbLogger' => array(
             'handlers' => array('console', 'gelf', 'mysql'),
             'processors' => array('psr_processor', 'web_processor', 'introspection_processor')
+        ),
+        'gelfFileLogger' => array(
+            'handlers' => array('console', 'info_file_handler', 'error_file_handler', 'gelf'),
+            'processors' => array('psr_processor', 'web_processor', 'introspection_processor', 'memory_processor')
+        ),
+        'dbFileLogger' => array(
+            'handlers' => array('console', 'info_file_handler', 'error_file_handler', 'mysql'),
+            'processors' => array('psr_processor', 'web_processor', 'introspection_processor', 'memory_processor')
         ),
     )
 );

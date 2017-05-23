@@ -71,7 +71,7 @@ $aModule = array(
               'name' => 'smxMonologType',
               'type' => 'select',
               'value' => 'gelfLogger',
-              'constraints' => 'gelfLogger|fileLogger|dbLogger|gelfDbLogger|multiLogger',
+              'constraints' => 'gelfLogger|fileLogger|dbLogger|dbFileLogger|gelfDbLogger|gelfFileLogger|multiLogger',
               'position' => 4
         ),
         array(
