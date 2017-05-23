@@ -24,7 +24,7 @@ Then run "composer update" in your shop directory and activate the module in the
 
 ## Usage
 
-Configure the module in the module settings in the OXID backend, choose the logging methods you want to use (files, mysql, graylog)
+Configure the module in the module settings in the OXID backend, choose the logging methods you want to use (files, mysql, graylog or combinations of those)
 and configure your graylog server data if used.
 
 
@@ -36,6 +36,7 @@ in *"oxsupercfg::__call()"* which can't be handled via a module. So to track tho
 Change the *__call()* function like this and add the logging method below:
 
 ```php
+<?php
     public function __call($sMethod, $aArgs)
     {
         if (defined('OXID_PHP_UNIT')) {
@@ -64,11 +65,15 @@ Change the *__call()* function like this and add the logging method below:
      */
     private function _logEvent($msg, $level = 'INFO')
     {
+        $oConfig = oxRegistry::getConfig();
+        $sShopId = $oConfig->getShopId();
+        $blLogErrors = $oConfig->getShopConfVar('smxMonologLogExc', $sShopId, 'module:smxmonologoxid');
         $smxmonologoxidlogger = new smxmonologoxidlogger();
-        if ($smxmonologoxidlogger
+        if ($blLogErrors && $smxmonologoxidlogger
             && ($logger = $smxmonologoxidlogger->getLogger()) != null
         ) {
             $logger->log($msg, array(), $level);
         }
     }
+?>    
 ```
