@@ -24,8 +24,11 @@ class smxmonologoxidoxexception extends smxmonologoxidoxexception_parent
      */
     protected static function logError($msg, $errfile = '', $errline = null)
     {
+        $oConfig = oxRegistry::getConfig();
+        $sShopId = $oConfig->getShopId();
+        $blLogErrors = $oConfig->getShopConfVar('smxMonologLogExc', $sShopId, 'module:smxmonologoxid');
         $smxmonologoxidlogger = new smxmonologoxidlogger();
-        if ($smxmonologoxidlogger
+        if ($blLogErrors && $smxmonologoxidlogger
             && ($logger = $smxmonologoxidlogger->getLogger()) != null
         ) {
             $logger->log($msg, array('file' => $errfile, 'line' => $errline), 'ERROR');

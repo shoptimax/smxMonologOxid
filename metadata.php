@@ -76,17 +76,24 @@ $aModule = array(
         ),
         array(
             'group' => 'smxMonologSettings',
-            'name'  => 'smxMonologLogErrs',
+            'name'  => 'smxMonologLogExc',
             'type'  => 'bool',
             'value' => true,
             'position' => 5
         ),
         array(
             'group' => 'smxMonologSettings',
+            'name'  => 'smxMonologLogErrs',
+            'type'  => 'bool',
+            'value' => true,
+            'position' => 6
+        ),
+        array(
+            'group' => 'smxMonologSettings',
             'name'  => 'smxMonologOnlyErrs',
             'type'  => 'bool',
             'value' => false,
-            'position' => 6
+            'position' => 7
         ),
         /*
         array(

@@ -26,6 +26,7 @@ $aLang = array(
     'SHOP_MODULE_smxMonologType_gelfDbLogger'   => 'Graylog und Mysql',
     'SHOP_MODULE_smxMonologType_gelfFileLogger'   => 'Graylog und Datei',
     'SHOP_MODULE_smxMonologType_multiLogger'   => 'Graylog, MySQL und Datei',
+    'SHOP_MODULE_smxMonologLogExc'  => 'Exceptions loggen (EXCEPTION_LOG.txt)',
     'SHOP_MODULE_smxMonologLogErrs'  => 'Auch PHP Errors loggen (error_log.txt)',
     'SHOP_MODULE_smxMonologOnlyErrs' => 'Nur Errors loggen (keine Warnings)',
     'SHOP_MODULE_smxMonologChan'     => 'Custom Graylog Channel / Ident (Standard ist sonst z.B. "OXID-EE meinshopname.de")',

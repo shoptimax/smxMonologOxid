@@ -27,6 +27,7 @@ $aLang = array(
     'SHOP_MODULE_smxMonologType_gelfFileLogger'   => 'Graylog and File',
     'SHOP_MODULE_smxMonologType_multiLogger'   => 'Graylog, MySQL and File',
     'SHOP_MODULE_smxMonologLogErrs'  => 'Log PHP errors (error_log.txt)',
+    'SHOP_MODULE_smxMonologLogExc'  => 'Log Exceptions (EXCEPTION_LOG.txt)',
     'SHOP_MODULE_smxMonologOnlyErrs' => 'Log only errors (no warnings)',
     'SHOP_MODULE_smxMonologChan'     => 'Custom Monolog Channel / Ident (Standard ist sonst z.B. "OXID-EE meinshopname.de")',
     'SHOP_MODULE_smxMonologAddFields'=> 'Zus&auml;tzliche Felder (Key => Value)',
