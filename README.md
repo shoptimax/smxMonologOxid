@@ -48,6 +48,21 @@ The array (2nd parameter in the log function) can be used to __send additional f
 field "ctx_foo" with value "bar".
 The 3rd parameter is the __log level__, available are [all Monolog log levels](https://github.com/Seldaek/monolog/blob/master/doc/01-usage.md#log-levels) (PSR).
 
+You can also use the $logger like this, see [usage info](https://github.com/shoptimax/smxmonolog#usage):
+```php
+<?php
+    // change log level
+    $logger->setLogLevel('NOTICE');
+    $logger->log("Hello, Notice!");
+    // set a custom log level for a message
+    $logger->log("Hello, Custom Alert!", array(), 'ALERT');
+    // use dedicated log functions with fix level
+    $logger->debug("Will have {food} for {meal}", array('food' => 'fish', 'meal' => 'breakfast'));
+    $logger->warning("Testing this warning");
+    $logger->error("Doh, an error!");
+?>
+```
+
 ## Extras
 
 The module will log most of the log messages that OXID sends to the php error log and to its own "EXCEPTION_LOG.txt" file.
