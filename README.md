@@ -46,6 +46,7 @@ call the log method like this:
 
 The array (2nd parameter in the log function) can be used to __send additional fields__ to graylog, the example will be visible in graylog as 
 field "ctx_foo" with value "bar".
+The 3rd parameter is the __log level__, available are [all Monolog log levels](https://github.com/Seldaek/monolog/blob/master/doc/01-usage.md#log-levels) (PSR).
 
 ## Extras
 
