@@ -27,6 +27,25 @@ Then run "composer update" in your shop directory and activate the module in the
 Configure the module in the module settings in the OXID backend, choose the logging methods you want to use (files, mysql, graylog or combinations of those)
 and configure your graylog server data if used.
 
+## Usage from other modules
+
+If you want to log from other modules in OXID, you should first check if the monolog module is active and then
+call the log method like this:
+```php
+<?php  
+  if (class_exists('smxmonologoxidlogger')) {
+      $smxmonologoxidlogger = new smxmonologoxidlogger();
+      if ($smxmonologoxidlogger
+          && ($logger = $smxmonologoxidlogger->getLogger()) != null
+      ) {
+          $logger->log("Hello, world!", array("foo" => "bar"), 'INFO');
+      }
+  }
+?>
+```
+
+The array (2nd parameter in the log function) can be used to __send additional fields__ to graylog, the example will be visible in graylog as 
+field "ctx_foo" with value "bar".
 
 ## Extras
 
