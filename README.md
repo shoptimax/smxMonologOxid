@@ -1,6 +1,6 @@
 # smxMonologOxid
 
-A generic logging module using Monolog via [smxMonolog](https://github.com/shoptimax/smxmonolog.git)
+A generic OXID eShop logging module using Monolog via [smxMonolog](https://github.com/shoptimax/smxmonolog.git)
 
 This module can log to files, MySQL and Graylog or any combination of them.
 
@@ -36,14 +36,12 @@ If you want to log from other modules in OXID, you should first check if the mon
 call the log method like this:
 ```php
 <?php  
-  if (class_exists('smxmonologoxidlogger')) {
-      $smxmonologoxidlogger = new smxmonologoxidlogger();
-      if ($smxmonologoxidlogger
-          && ($logger = $smxmonologoxidlogger->getLogger()) != null
-      ) {
-          $logger->log("Hello, world!", array("foo" => "bar"), 'INFO');
-      }
-  }
+    $smxmonologoxidlogger = oxRegistry::get('smxmonologoxidlogger');
+    if ($smxmonologoxidlogger
+        && ($logger = $smxmonologoxidlogger->getLogger()) != null
+    ) {
+        $logger->log("Hello, world!", array("foo" => "bar"), 'INFO');
+    }
 ?>
 ```
 
@@ -68,9 +66,9 @@ You can also use the $logger like this, see [usage info](https://github.com/shop
 
 ## Extras
 
-The module will log most of the log messages that OXID sends to the php error log and to its own "EXCEPTION_LOG.txt" file.
+The module is capable of logging most of the log messages that OXID sends to the php error log and to its own "EXCEPTION_LOG.txt" file.
 There is one exception though - missing functions will not be logged since OXID throws a really hardcore __oxSystemComponentExcption__
-in *"oxsupercfg::__call()"* which can't be handled via a module. So to track those exceptions with monolog, too, you have to "patch" oxsupercfg.php unfortunately.
+in *"oxsupercfg::__call()"* which can't be handled via a module. So to track those core exceptions with monolog, too, you have to "patch" oxsupercfg.php unfortunately.
 Change the *__call()* function like this and add the logging method below:
 
 ```php
@@ -106,7 +104,7 @@ Change the *__call()* function like this and add the logging method below:
         $oConfig = oxRegistry::getConfig();
         $sShopId = $oConfig->getShopId();
         $blLogErrors = $oConfig->getShopConfVar('smxMonologLogExc', $sShopId, 'module:smxmonologoxid');
-        $smxmonologoxidlogger = new smxmonologoxidlogger();
+        $smxmonologoxidlogger = oxRegistry::get('smxmonologoxidlogger');
         if ($blLogErrors && $smxmonologoxidlogger
             && ($logger = $smxmonologoxidlogger->getLogger()) != null
         ) {

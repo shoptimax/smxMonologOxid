@@ -49,7 +49,7 @@ class smxmonologoxidoxbasket extends smxmonologoxidoxbasket_parent
      */
     protected function trackEvent($sProductId)
     {
-        $smxmonologoxidlogger = new smxmonologoxidlogger();
+        $smxmonologoxidlogger = oxRegistry::get('smxmonologoxidlogger');
         if ($smxmonologoxidlogger
             && ($logger = $smxmonologoxidlogger->getLogger()) != null
         ) {
