@@ -56,7 +56,7 @@ class smxmonologoxidoxorder extends smxmonologoxidoxorder_parent
      */
     protected function trackEvent($ret)
     {
-        $smxmonologoxidlogger = new smxmonologoxidlogger();
+        $smxmonologoxidlogger = oxRegistry::get('smxmonologoxidlogger');
         if ($smxmonologoxidlogger
             && ($logger = $smxmonologoxidlogger->getLogger()) != null
         ) {

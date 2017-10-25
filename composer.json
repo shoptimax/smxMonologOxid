@@ -6,6 +6,7 @@
     "shoptimax",
     "logging",
     "monolog",
+    "mysql",
     "graylog",
     "gelf"
   ],

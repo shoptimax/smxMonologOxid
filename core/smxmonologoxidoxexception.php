@@ -27,7 +27,7 @@ class smxmonologoxidoxexception extends smxmonologoxidoxexception_parent
         $oConfig = oxRegistry::getConfig();
         $sShopId = $oConfig->getShopId();
         $blLogErrors = $oConfig->getShopConfVar('smxMonologLogExc', $sShopId, 'module:smxmonologoxid');
-        $smxmonologoxidlogger = new smxmonologoxidlogger();
+        $smxmonologoxidlogger = oxRegistry::get('smxmonologoxidlogger');
         if ($blLogErrors && $smxmonologoxidlogger
             && ($logger = $smxmonologoxidlogger->getLogger()) != null
         ) {

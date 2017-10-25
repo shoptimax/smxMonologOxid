@@ -33,7 +33,7 @@ class smxmonologoxidoxbasket extends smxmonologoxidoxbasket_parent
         $ret = parent::addToBasket($sProductID, $dAmount, $aSel, $aPersParam, $blOverride, $blBundle, $sOldBasketItemId);
 
         $sShopId = oxRegistry::getConfig()->getShopId();
-        $blTrackBasket = true;//$this->getConfig()->getShopConfVar('smxMonologTrBasket', $sShopId, 'module:smxmonologoxid');
+        $blTrackBasket = $this->getConfig()->getShopConfVar('smxMonologTrBasket', $sShopId, 'module:smxmonologoxid');
         if ($blTrackBasket) {
             $this->trackEvent($sProductID);
         }
@@ -49,7 +49,7 @@ class smxmonologoxidoxbasket extends smxmonologoxidoxbasket_parent
      */
     protected function trackEvent($sProductId)
     {
-        $smxmonologoxidlogger = new smxmonologoxidlogger();
+        $smxmonologoxidlogger = oxRegistry::get('smxmonologoxidlogger');
         if ($smxmonologoxidlogger
             && ($logger = $smxmonologoxidlogger->getLogger()) != null
         ) {

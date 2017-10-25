@@ -27,7 +27,7 @@ $aModule = array(
         'en' => 'smx Monolog Logging',
     ),
     'thumbnail'   => 'out/pictures/shoptimax_logo.jpg',
-    'version'     => '1.0.0',
+    'version'     => '1.0.1',
     'author'      => 'shoptimax GmbH',
     'url'         => 'http://www.shoptimax.de',
     'email'       => 'module@shoptimax.de',
@@ -38,11 +38,10 @@ $aModule = array(
         'oxorder'  => 'shoptimax/smxmonologoxid/application/models/smxmonologoxidoxorder',
     ),
     'files'       => array(
-        //'smxmonologmodule' => 'shoptimax/smxmonologoxid/core/smxmonologmodule.php',
         'smxmonologoxidlogger' => 'shoptimax/smxmonologoxid/core/smxmonologoxidlogger.php',
-),
+    ),
     'templates'   => array(
-),
+    ),
     'blocks'      => array(
     ),
     'settings'    => array(

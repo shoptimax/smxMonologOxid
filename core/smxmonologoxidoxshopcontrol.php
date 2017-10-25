@@ -22,7 +22,7 @@ class smxmonologoxidoxshopcontrol extends smxmonologoxidoxshopcontrol_parent
      */
     public static function logShutdown()
     {
-        $smxmonologoxidlogger = new smxmonologoxidlogger();
+        $smxmonologoxidlogger = oxRegistry::get('smxmonologoxidlogger');
         if (!$smxmonologoxidlogger) {
             return;
         }
@@ -51,7 +51,7 @@ class smxmonologoxidoxshopcontrol extends smxmonologoxidoxshopcontrol_parent
      */
     protected static function logError($msg, $errfile = '', $errline = null)
     {
-        $smxmonologoxidlogger = new smxmonologoxidlogger();
+        $smxmonologoxidlogger = oxRegistry::get('smxmonologoxidlogger');
         if ($smxmonologoxidlogger
             && ($logger = $smxmonologoxidlogger->getLogger()) != null
         ) {

@@ -68,11 +68,11 @@ class smxmonologoxidlogger extends oxSuperCfg
 
         if (!$this->libsAvailable()) {
             $this->_enabled = false;
-            error_log("smxGrayLog Fatal - smxmonolog lib not installed! Please install it via composer update!");
+            error_log("smxMonoLogOxid Fatal - smxmonolog lib not installed! Please install it via composer update!");
             return;
         }
         if ($this->monologConfig === null) {
-            // we use a YAML config here
+            // we use a PHP config here since we need to read the configuration params from the database
             $yamlConfig = oxRegistry::getConfig()->getModulesDir().'shoptimax/smxmonologoxid/config/logconfig.php';
             $this->monologConfig = new SmxMonologConfig();
             $this->monologConfig->setFileConfig($yamlConfig);
@@ -89,7 +89,7 @@ class smxmonologoxidlogger extends oxSuperCfg
                     SmxMonolog::getLogLevel($this->defaultLogLevel)
                 );
             } catch (Exception $ex) {
-                oxRegistry::getUtils()->writeToLog('[' . date('d-M-Y H:i:s e') . "] Error using smxmonologoxid module: " . $ex->getMessage() . "\n", "error_log.txt");
+                oxRegistry::getUtils()->writeToLog('[' . date('d-M-Y H:i:s e') . "] Error using smxMonoLogOxid module: " . $ex->getMessage() . "\n", "error_log.txt");
             }
         }
         $this->_enabled = true;
