@@ -4,9 +4,12 @@ A generic logging module using Monolog via [smxMonolog](https://github.com/shopt
 
 This module can log to files, MySQL and Graylog or any combination of them.
 
+![](doc/backend.png) ![](doc/backend2.png)
+
+
 ## Installation
 
-You need to install the __smxgraylog__ lib to use this module. Add this to your main composer.json file:
+You need to install the __smxmonolog__ lib to use this module. Add this to your main composer.json file:
 
 ```json
   "repositories": {
