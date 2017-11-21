@@ -56,7 +56,7 @@ $aModule = array(
             'group' => 'smxMonologSettings',
             'name'  => 'smxMonologGlServerIp',
             'type'  => 'str',
-            'value' => '127.0.0.1',
+            'value' => '192.168.0.10',
             'position' => 2
         ),
         array(
